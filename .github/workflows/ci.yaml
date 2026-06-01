@@ -1,23 +1,26 @@
 name: continuous-integration
+
 on:
   push:
     branches:
-      -main
+      - main
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: verify HTML File Exists
+      - name: Verify HTML File Exists
         run: test -f index.html
 
-      - name: verify CSS File Exists
+      - name: Verify CSS File Exists
         run: test -f style.css
 
-      - name: verify JavaScript File Exists
+      - name: Verify JavaScript File Exists
         run: test -f script.js
 
-      - name: Ci Success
-        run: echo "website Passed validation!"
+      - name: CI Success
+        run: echo "Website passed validation!"
