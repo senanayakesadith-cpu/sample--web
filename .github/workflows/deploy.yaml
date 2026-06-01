@@ -1,8 +1,9 @@
-name: Continuous Deploy
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
-      -main
+      - main
 
 permissions:
   contents: read
@@ -11,19 +12,20 @@ permissions:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
-      
-      runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/configure-pages@v5
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
       - uses: actions/deploy-pages@v4
-          
-
       
      
